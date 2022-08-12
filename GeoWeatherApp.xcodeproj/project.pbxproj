@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1985E244E94A14AC3650E7B8 /* Pods_GeoWeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526110E4495E0BE54B833185 /* Pods_GeoWeatherApp.framework */; };
+		35029DDB2802D59F00DDFC1E /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DDA2802D59F00DDFC1E /* +UIView.swift */; };
+		35029DDE2802FFE700DDFC1E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DDD2802FFE700DDFC1E /* MapView.swift */; };
+		35029DE02802FFF900DDFC1E /* CityTemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DDF2802FFF900DDFC1E /* CityTemperatureView.swift */; };
+		35029DE32803002400DDFC1E /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DE22803002400DDFC1E /* MapTableViewCell.swift */; };
+		35029DE52803003700DDFC1E /* TemperatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DE42803003700DDFC1E /* TemperatureTableViewCell.swift */; };
 		3510355F27C8DB2700993B76 /* OpenWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3510355E27C8DB2700993B76 /* OpenWeatherData.swift */; };
+		35A83BBD28A6FED100665872 /* +UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A83BBC28A6FED100665872 /* +UIStackView.swift */; };
 		35EB1CB627C8D94300FA0864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB527C8D94300FA0864 /* AppDelegate.swift */; };
 		35EB1CB827C8D94300FA0864 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */; };
 		35EB1CBA27C8D94300FA0864 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB927C8D94300FA0864 /* ViewController.swift */; };
@@ -20,7 +26,13 @@
 
 /* Begin PBXFileReference section */
 		348C56B55F5EEB07275E8F10 /* Pods-GeoWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoWeatherApp.release.xcconfig"; path = "Target Support Files/Pods-GeoWeatherApp/Pods-GeoWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		35029DDA2802D59F00DDFC1E /* +UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
+		35029DDD2802FFE700DDFC1E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		35029DDF2802FFF900DDFC1E /* CityTemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTemperatureView.swift; sourceTree = "<group>"; };
+		35029DE22803002400DDFC1E /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		35029DE42803003700DDFC1E /* TemperatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewCell.swift; sourceTree = "<group>"; };
 		3510355E27C8DB2700993B76 /* OpenWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherData.swift; sourceTree = "<group>"; };
+		35A83BBC28A6FED100665872 /* +UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIStackView.swift"; sourceTree = "<group>"; };
 		35EB1CB227C8D94300FA0864 /* GeoWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EB1CB527C8D94300FA0864 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +58,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35029DD42802D29A00DDFC1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3510355E27C8DB2700993B76 /* OpenWeatherData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		35029DD52802D2BC00DDFC1E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				35EB1CC927C8D94D00FA0864 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		35029DD62802D2DA00DDFC1E /* Supports files */ = {
+			isa = PBXGroup;
+			children = (
+				35EB1CBE27C8D94400FA0864 /* Assets.xcassets */,
+				35EB1CC027C8D94400FA0864 /* LaunchScreen.storyboard */,
+				35EB1CB527C8D94300FA0864 /* AppDelegate.swift */,
+				35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */,
+			);
+			path = "Supports files";
+			sourceTree = "<group>";
+		};
+		35029DD72802D4F600DDFC1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35029DE12803000D00DDFC1E /* Cells */,
+				35029DDC2802FFCD00DDFC1E /* Views */,
+				35EB1CBB27C8D94300FA0864 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35029DD82802D50500DDFC1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				35EB1CB927C8D94300FA0864 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		35029DD92802D52700DDFC1E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35029DDA2802D59F00DDFC1E /* +UIView.swift */,
+				35A83BBC28A6FED100665872 /* +UIStackView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35029DDC2802FFCD00DDFC1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35029DDD2802FFE700DDFC1E /* MapView.swift */,
+				35029DDF2802FFF900DDFC1E /* CityTemperatureView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		35029DE12803000D00DDFC1E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				35029DE22803002400DDFC1E /* MapTableViewCell.swift */,
+				35029DE42803003700DDFC1E /* TemperatureTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		35EB1CA927C8D94300FA0864 = {
 			isa = PBXGroup;
 			children = (
@@ -67,14 +151,12 @@
 		35EB1CB427C8D94300FA0864 /* GeoWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				35EB1CC927C8D94D00FA0864 /* APIManager.swift */,
-				3510355E27C8DB2700993B76 /* OpenWeatherData.swift */,
-				35EB1CB527C8D94300FA0864 /* AppDelegate.swift */,
-				35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */,
-				35EB1CB927C8D94300FA0864 /* ViewController.swift */,
-				35EB1CBB27C8D94300FA0864 /* Main.storyboard */,
-				35EB1CBE27C8D94400FA0864 /* Assets.xcassets */,
-				35EB1CC027C8D94400FA0864 /* LaunchScreen.storyboard */,
+				35029DD52802D2BC00DDFC1E /* API */,
+				35029DD92802D52700DDFC1E /* Extensions */,
+				35029DD42802D29A00DDFC1E /* Models */,
+				35029DD72802D4F600DDFC1E /* View */,
+				35029DD82802D50500DDFC1E /* Controller */,
+				35029DD62802D2DA00DDFC1E /* Supports files */,
 				35EB1CC327C8D94400FA0864 /* Info.plist */,
 			);
 			path = GeoWeatherApp;
@@ -86,7 +168,6 @@
 				6541FA36C89ABA9AA539DB10 /* Pods-GeoWeatherApp.debug.xcconfig */,
 				348C56B55F5EEB07275E8F10 /* Pods-GeoWeatherApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +294,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35029DDE2802FFE700DDFC1E /* MapView.swift in Sources */,
+				35029DDB2802D59F00DDFC1E /* +UIView.swift in Sources */,
+				35029DE32803002400DDFC1E /* MapTableViewCell.swift in Sources */,
 				35EB1CCA27C8D94D00FA0864 /* APIManager.swift in Sources */,
 				35EB1CBA27C8D94300FA0864 /* ViewController.swift in Sources */,
+				35A83BBD28A6FED100665872 /* +UIStackView.swift in Sources */,
 				35EB1CB627C8D94300FA0864 /* AppDelegate.swift in Sources */,
+				35029DE52803003700DDFC1E /* TemperatureTableViewCell.swift in Sources */,
 				3510355F27C8DB2700993B76 /* OpenWeatherData.swift in Sources */,
+				35029DE02802FFF900DDFC1E /* CityTemperatureView.swift in Sources */,
 				35EB1CB827C8D94300FA0864 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
