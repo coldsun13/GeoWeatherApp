@@ -1,18 +1,16 @@
 import UIKit
 
 final class MapTableViewCell: UITableViewCell {
-    // MARK: - Identifier
-
-    static let identifier = "MapTableViewCell"
 
     // MARK: - Properties
+    static let identifier = "MapTableViewCell"
 
+    
     // MARK: Private
 
     let mapView = MapView()
 
-    // MARK: - LIfecycle
-
+    // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(mapView)
@@ -24,8 +22,6 @@ final class MapTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Constraints
 
     // MARK: Private
 

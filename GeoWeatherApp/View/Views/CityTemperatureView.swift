@@ -1,26 +1,24 @@
 import UIKit
 
-final class CityTemperatureView: UIView {
+final class WeatherView: UIView {
     // MARK: - Properties
-
     // MARK: Private
-
+    
     private let stackView = UIStackView()
     private let geolocationStackView = UIStackView()
     private let cityLabel = UILabel()
     private let countryLabel = UILabel()
     private let scaleLabel = UILabel()
-    private let toCelsiy = 273.15
-
+    
     // MARK: - LIfecycle
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
         addSetups()
         addStackViewConstraint()
     }
-
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,11 +28,9 @@ final class CityTemperatureView: UIView {
     
     func set(_ geolocatian: String, _ scale: Double, _ country: String) {
         cityLabel.text = geolocatian
-        scaleLabel.text = String(format: "%.0f", scale - toCelsiy) + "º"
+        scaleLabel.text = String(format: "%.0f", scale) + "º"
         countryLabel.text = country
     }
-    
-    // MARK: - Constraints
     
     // MARK: Private
     
@@ -52,10 +48,10 @@ final class CityTemperatureView: UIView {
     
     private func addSubviews() {
         addSubview(stackView)
-        stackView.addArrangedSubview(geolocationStackView)
-        stackView.addArrangedSubview(scaleLabel)
-        geolocationStackView.addArrangedSubview(cityLabel)
-        geolocationStackView.addArrangedSubview(countryLabel)
+        stackView.addAllArrangedSubviews(geolocationStackView,
+                                         scaleLabel)
+        geolocationStackView.addAllArrangedSubviews(cityLabel,
+                                                    countryLabel)
     }
     
     private func addSetups() {
@@ -65,12 +61,6 @@ final class CityTemperatureView: UIView {
         addCityLabelSetups()
         addCountryLabelSetups()
         addScaleLabelSetups()
-    }
-    
-    func setInfo(_ geolocatian: String, _ scale: Double, _ country: String) {
-        cityLabel.text = geolocatian
-        scaleLabel.text = String(format: "%.0f", scale - toCelsiy) + "º"
-        countryLabel.text = country
     }
     
     private func addViewSetups() {

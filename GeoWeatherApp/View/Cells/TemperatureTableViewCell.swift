@@ -9,7 +9,7 @@ final class TemperatureTableViewCell: UITableViewCell {
 
     // MARK: Private
 
-    let cityTemperatureView = CityTemperatureView()
+    let cityTemperatureView = WeatherView()
 
     // MARK: - LIfecycle
 
