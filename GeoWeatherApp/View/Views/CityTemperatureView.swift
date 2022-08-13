@@ -33,7 +33,7 @@ final class WeatherView: UIView {
     }
     
     // MARK: Private
-    
+    // MARK: - Setups
     private func addStackViewConstraint() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
@@ -41,10 +41,6 @@ final class WeatherView: UIView {
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
     }
-    
-    // MARK: - Setups
-    
-    // MARK: Private
     
     private func addSubviews() {
         addSubview(stackView)

@@ -15,6 +15,7 @@
 		35029DE52803003700DDFC1E /* TemperatureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35029DE42803003700DDFC1E /* TemperatureTableViewCell.swift */; };
 		3510355F27C8DB2700993B76 /* OpenWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3510355E27C8DB2700993B76 /* OpenWeatherData.swift */; };
 		35A83BBD28A6FED100665872 /* +UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A83BBC28A6FED100665872 /* +UIStackView.swift */; };
+		35A83BC028A7F9C500665872 /* Transfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A83BBF28A7F9C500665872 /* Transfers.swift */; };
 		35EB1CB627C8D94300FA0864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB527C8D94300FA0864 /* AppDelegate.swift */; };
 		35EB1CB827C8D94300FA0864 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */; };
 		35EB1CBA27C8D94300FA0864 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB1CB927C8D94300FA0864 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		35029DE42803003700DDFC1E /* TemperatureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTableViewCell.swift; sourceTree = "<group>"; };
 		3510355E27C8DB2700993B76 /* OpenWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherData.swift; sourceTree = "<group>"; };
 		35A83BBC28A6FED100665872 /* +UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIStackView.swift"; sourceTree = "<group>"; };
+		35A83BBF28A7F9C500665872 /* Transfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfers.swift; sourceTree = "<group>"; };
 		35EB1CB227C8D94300FA0864 /* GeoWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EB1CB527C8D94300FA0864 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EB1CB727C8D94300FA0864 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		35A83BBE28A7F6F600665872 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				35A83BBF28A7F9C500665872 /* Transfers.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		35EB1CA927C8D94300FA0864 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 		35EB1CB427C8D94300FA0864 /* GeoWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				35A83BBE28A7F6F600665872 /* Protocols */,
 				35029DD52802D2BC00DDFC1E /* API */,
 				35029DD92802D52700DDFC1E /* Extensions */,
 				35029DD42802D29A00DDFC1E /* Models */,
@@ -300,6 +311,7 @@
 				35EB1CCA27C8D94D00FA0864 /* APIManager.swift in Sources */,
 				35EB1CBA27C8D94300FA0864 /* ViewController.swift in Sources */,
 				35A83BBD28A6FED100665872 /* +UIStackView.swift in Sources */,
+				35A83BC028A7F9C500665872 /* Transfers.swift in Sources */,
 				35EB1CB627C8D94300FA0864 /* AppDelegate.swift in Sources */,
 				35029DE52803003700DDFC1E /* TemperatureTableViewCell.swift in Sources */,
 				3510355F27C8DB2700993B76 /* OpenWeatherData.swift in Sources */,
