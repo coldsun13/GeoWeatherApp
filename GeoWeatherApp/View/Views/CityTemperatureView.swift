@@ -1,6 +1,6 @@
 import UIKit
 
-final class WeatherView: UIView {
+final class CityTemperatureView: UIView {
     // MARK: - Properties
     // MARK: Private
     
@@ -11,7 +11,6 @@ final class WeatherView: UIView {
     private let scaleLabel = UILabel()
     
     // MARK: - LIfecycle
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()

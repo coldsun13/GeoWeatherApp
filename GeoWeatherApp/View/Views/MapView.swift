@@ -56,8 +56,8 @@ final class MapView: UIView {
     
     private func addSubviews() {
         addSubview(map)
-        map.addSubview(getTemperatureButton)
-        map.addSubview(getLocationButton)
+        map.addSubviews(getTemperatureButton,
+                        getLocationButton)
     }
     
     private func addSetups() {
@@ -70,6 +70,7 @@ final class MapView: UIView {
                                   green: 34/255,
                                   blue: 49/255,
                                   alpha: 1.0)
+        layer.masksToBounds = true
         layer.cornerRadius = 15
     }
     
@@ -77,7 +78,6 @@ final class MapView: UIView {
     // MARK: Private
     
     @objc private func getMyLocation() {
-        
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         map.showsUserLocation = true
@@ -144,6 +144,5 @@ final class MapView: UIView {
         getLocationButton.addTarget(self,
                                     action: #selector(getMyLocation),
                                     for: .touchUpInside)
-        
     }
 }
