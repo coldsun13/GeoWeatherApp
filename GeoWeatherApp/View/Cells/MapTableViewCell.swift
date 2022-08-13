@@ -5,9 +5,8 @@ final class MapTableViewCell: UITableViewCell {
     // MARK: - Properties
     static let identifier = "MapTableViewCell"
 
-    
     // MARK: Private
-
+    // MARK: Outlets
     let mapView = MapView()
 
     // MARK: - Lifecycle
@@ -24,7 +23,7 @@ final class MapTableViewCell: UITableViewCell {
     }
 
     // MARK: Private
-
+    // MARK: Setups
     private func addWeatherViewConstraints() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true

@@ -1,5 +1,5 @@
 import UIKit
-
+import MapKit
 
 final class ViewController: UIViewController {
     
@@ -7,12 +7,17 @@ final class ViewController: UIViewController {
         case weatherMap
         case cityTemperature
     }
-
-    // MARK: - Outlets
+    
     // MARK: Private
+    // MARK: - Outlets
     private let tableView = UITableView()
-    private let setTemperature = UIButton()
-    private var selectedLatitude: Double = 53.904541
+    private let locationManager = CLLocationManager()
+    private let getTemperatureButton = UIButton()
+    private let getLocationButton = UIButton()
+    
+    // MARK: Private
+    // MARK: Properties
+    private var selectedLatitude: Double = 0.0
     private var selectedLongitude: Double = 0.0
     private let dataSource: [UserInterface] = [.cityTemperature, .weatherMap]
     private var weather: OpenWeatherData? {
@@ -20,19 +25,21 @@ final class ViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         addConstraints()
         setupTableView()
-        setupUI()
     }
     
-    // MARK: - Setups
     // MARK: Private
+    // MARK: - Setups
     private func addSubviews() {
-        view.addSubviews(tableView, setTemperature)
+        view.addSubviews(tableView,
+                         getTemperatureButton,
+                         getLocationButton)
     }
     private func addConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,9 +48,14 @@ final class ViewController: UIViewController {
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        setTemperature.translatesAutoresizingMaskIntoConstraints = false
-        setTemperature.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        setTemperature.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -40).isActive = true
+        getTemperatureButton.translatesAutoresizingMaskIntoConstraints = false
+        getTemperatureButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        getTemperatureButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -100).isActive = true
+        
+        getLocationButton.translatesAutoresizingMaskIntoConstraints = false
+        getLocationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        getLocationButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -100).isActive = true
+        
     }
     private func setupTableView() {
         tableView.delegate = self
@@ -52,24 +64,8 @@ final class ViewController: UIViewController {
         tableView.register(MapTableViewCell.self, forCellReuseIdentifier: MapTableViewCell.identifier)
         tableView.register(TemperatureTableViewCell.self, forCellReuseIdentifier: TemperatureTableViewCell.identifier)
     }
-    
-    private func setupUI() {
-        setTemperature.setImage(UIImage(systemName: "location.circle.fill"),
-                                for: .normal)
-        setTemperature.addTarget(self,
-                                 action: #selector(weatherInMyLocation),
-                                 for: .touchUpInside)
-    }
-    
-    @objc private func weatherInMyLocation() {
-        APIManager.instance.getTheWeather(
-            myLatitude: selectedLatitude,
-            myLongitude: selectedLongitude) { data in
-                self.weather = data
-                self.tableView.reloadData()
-            }
-    }
 }
+
 //MARK: UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -77,10 +73,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         switch dataSource[indexPath.row] {
         case .weatherMap:
             if let cell = tableView.dequeueReusableCell(withIdentifier: MapTableViewCell.identifier, for: indexPath) as? MapTableViewCell {
+                cell.mapView.delegate = self
                 return cell
             }
             return UITableViewCell()
-
+            
         case .cityTemperature:
             if let cell = tableView.dequeueReusableCell(withIdentifier: TemperatureTableViewCell.identifier, for: indexPath) as? TemperatureTableViewCell {
                 cell.cityTemperatureView.set(weather?.name ?? "None", weather?.main.temp ?? 0, weather?.sys.country ?? "None")
@@ -89,11 +86,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource[indexPath.row] {
         case .weatherMap:
@@ -101,5 +98,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .cityTemperature:
             return 150
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Weather"
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.font = .systemFont(ofSize: 25, weight: .bold)
+        header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: header.bounds.width, height: header.bounds.height)
+        header.textLabel?.textAlignment = .left
+        header.textLabel?.textColor = .white
+    }
+}
+
+//MARK: InfoAboutUserDelegate
+extension ViewController: InfoAboutUserDelegate {
+    func setInfo(_ info: OpenWeatherData) {
+        weather = info
     }
 }

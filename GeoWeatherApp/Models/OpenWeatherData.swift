@@ -9,16 +9,16 @@ struct OpenWeatherData: Codable {
 
 struct Main: Codable {
     let temp: Double
-    let pressure, humidity: Int
+//    let pressure, humidity: Int
 }
 
 struct Wind: Codable {
-    let speed: Double
-    let deg: Int
-    let gust: Double
+//    let speed: Double
+//    let deg: Int
+//    let gust: Double
 }
 
 struct Sys: Codable {
     let country: String
-    let sunrise, sunset: Int
+//    let sunrise, sunset: Int
 }

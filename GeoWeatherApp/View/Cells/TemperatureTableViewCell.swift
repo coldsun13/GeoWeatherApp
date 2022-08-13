@@ -2,14 +2,11 @@ import UIKit
 
 final class TemperatureTableViewCell: UITableViewCell {
     // MARK: - Identifier
-
     static let identifier = "TemperatureTableViewCell"
-
-    // MARK: - Properties
-
+    
     // MARK: Private
-
-    let cityTemperatureView = WeatherView()
+    // MARK: Outlets
+    let cityTemperatureView = CityTemperatureView()
 
     // MARK: - LIfecycle
 
